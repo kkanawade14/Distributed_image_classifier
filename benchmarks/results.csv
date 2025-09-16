@@ -1,0 +1,1 @@
+date,gpus,model,imgs_per_sec,epoch_time_s,top1,amp,dist,scaling_efficiency
