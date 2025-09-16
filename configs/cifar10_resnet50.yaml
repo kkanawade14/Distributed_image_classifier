@@ -1,0 +1,27 @@
+includes:
+  - configs/aug_base.yaml
+  - configs/optim_adamw_cosine.yaml
+dataset:
+  name: cifar10
+  data_dir: ./data
+  download: true
+  img_size: 32
+  num_workers: 8
+  pin_memory: true
+  deterministic_workers: false
+model:
+  name: resnet50
+  pretrained: false
+training:
+  epochs: 100
+  batch_size: 128
+  grad_accum_steps: 4
+  effective_batch_size: 512
+  log_interval: 50
+  checkpoint_dir: checkpoints
+  clip_grad_norm: null
+  label_smoothing: 0.0
+  resume: null
+  limit_train_batches: null
+  limit_val_batches: null
+  seed: 42

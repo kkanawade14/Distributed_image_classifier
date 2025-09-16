@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: multi-gpu-cifar10
+message: If you use this project, please cite it as below.
+authors:
+  - family-names: Doe
+    given-names: Jane
+  - family-names: Doe
+    given-names: John
+year: 2024
+url: https://github.com/example/multi-gpu-cifar10

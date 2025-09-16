@@ -1,0 +1,51 @@
+includes:
+  - configs/optim_adamw_cosine.yaml
+dataset:
+  name: cifar10
+  data_dir: ./data
+  download: true
+  img_size: 224
+  num_workers: 8
+  pin_memory: true
+  deterministic_workers: false
+model:
+  name: vit_tiny_patch16_224
+  pretrained: false
+training:
+  epochs: 100
+  batch_size: 64
+  grad_accum_steps: 8
+  effective_batch_size: 512
+  log_interval: 50
+  checkpoint_dir: checkpoints
+  clip_grad_norm: 1.0
+  label_smoothing: 0.1
+  resume: null
+  limit_train_batches: null
+  limit_val_batches: null
+  seed: 42
+augmentation:
+  random_crop: null
+  random_horizontal_flip: true
+  randaugment: true
+  autoaugment: false
+  resize: 224
+  normalization:
+    mean: [0.485, 0.456, 0.406]
+    std: [0.229, 0.224, 0.225]
+  color_jitter:
+    brightness: 0.4
+    contrast: 0.4
+    saturation: 0.4
+    hue: 0.1
+optimizer:
+  name: adamw
+  lr: 0.0005
+  weight_decay: 0.05
+  betas: [0.9, 0.999]
+scheduler:
+  name: cosine
+  t_max: 100
+  eta_min: 1.0e-6
+  warmup_epochs: 10
+  warmup_factor: 0.01
